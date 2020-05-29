@@ -33,7 +33,8 @@ int main()
 	//步骤3：对数据源中的数据库/表进行操作
 	try
 	{
-		pRst = pMyConnect->Execute("select * from PUB_PARA.dbo.UNIT", NULL, adCmdText);//执行SQL： select * from gendat 
+		pMyConnect->Execute("use CMS", NULL, adCmdText);//执行SQL： select * from gendat 
+		pRst = pMyConnect->Execute("select top(100) * from cop_act_head", NULL, adCmdText);//执行SQL： select * from gendat 
 		//Table_1是数据库SchoolTemp的表名
 		if (!pRst->adoEOF)
 		{
